@@ -13,56 +13,93 @@ namespace ConsoleApp1
             Console.Title = "Быкова Дарья ИУ5-31Б";
             string a, b, c;
             double A, B, C;
-            if ((args != null) && (args.Length >= 1))
-            {
-                a = args[0];
-            }
-            else
+            if (args == null)
             {
                 Console.WriteLine("Введите первый коэффициент: ");
                 a = Console.ReadLine();
-            }
-            while (Double.TryParse(a, out A) == false)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Вы ввели не число, повторите ввод");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                a = Console.ReadLine();
+                while (Double.TryParse(a, out A) == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Вы ввели не число");
+                    Console.Write("Введите коэффициент заново: ");
+                    a = Console.ReadLine();
+                }
 
-            }
-            if ((args != null) && (args.Length >= 2))
-            {
-                b = args[1];
-            }
-            else
-            {
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("Введите второй коэффициент: ");
                 b = Console.ReadLine();
-            }
-            while (Double.TryParse(b, out B) == false)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Вы ввели не число, повторите ввод");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                b = Console.ReadLine();
-            }
-            if ((args != null) && (args.Length >= 3))
-            {
-                c = args[2];
-            }
-            else
-            {
+                while (Double.TryParse(b, out B) == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Вы ввели не число");
+                    Console.Write("Введите коэффициент заново: ");
+                    b = Console.ReadLine();
+                }
+
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("Введите третий коэффициент: ");
                 c = Console.ReadLine();
+                while (Double.TryParse(c, out C) == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Вы ввели не число");
+                    Console.Write("Введите коэффициент заново: ");
+                    c = Console.ReadLine();
+                }
             }
-            while (Double.TryParse(c, out C) == false)
+            else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Вы ввели не число, повторите ввод");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                c = Console.ReadLine();
+                if ((args.Length >= 1))
+                {
+                    a = args[0];
+                }
+                else
+                {
+                    Console.WriteLine("Введите первый коэффициент: ");
+                    a = Console.ReadLine();
+                }
+                while (!Double.TryParse(a, out A))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Вы ввели не число");
+                    Console.Write("Введите коэффициент заново: ");
+                    a = Console.ReadLine();
+
+                }
+                if ((args.Length >= 2))
+                {
+                    b = args[1];
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine("Введите второй коэффициент: ");
+                    b = Console.ReadLine();
+                }
+                while (!Double.TryParse(b, out B))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Вы ввели не число");
+                    Console.Write("Введите коэффициент заново: ");
+                    b = Console.ReadLine();
+                }
+                if ((args.Length >= 3))
+                {
+                    c = args[2];
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine("Введите третий коэффициент: ");
+                    c = Console.ReadLine();
+                }
+                while (!Double.TryParse(c, out C))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Вы ввели не число");
+                    Console.Write("Введите коэффициент заново: ");
+                    c = Console.ReadLine();
+                }
             }
 
             if ((A == 0) && (B == 0) && (C == 0))
@@ -119,8 +156,8 @@ namespace ConsoleApp1
                             }
                             if ((y1 == 0) && (y2 < 0))
                             {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Корней нет");
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Корень- ноль");
                             }
                             if ((y1 == 0) && (y2 > 0))
                             {
@@ -133,8 +170,8 @@ namespace ConsoleApp1
                             }
                             if ((y1 < 0) && (y2 == 0))
                             {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Корней нет");
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Корень- ноль");
                             }
                             if ((y1 > 0) && (y2 == 0))
                             {
